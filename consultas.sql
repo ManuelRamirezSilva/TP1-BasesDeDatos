@@ -2,7 +2,7 @@
 1. Devolver el nombre y DNI de las personas que recibieron heridas fatales en algún incidente.
 */
 SELECT v.nombre, v.dni
-FROM (Victimas v INNER JOIN Involucrados inv ON v.dni=inv.dni) INNER JOIN Incidentes I ON i.id_incidente=inv.id_incidente
+FROM (Victimas v INNER JOIN Involucrados inv ON v.dni=inv.dni) INNER JOIN Incidentes I ON i.id_incidente = inv.id_incidente
 WHERE v.herida = 'Fatal';
 
 /*
@@ -44,7 +44,7 @@ WHERE i.tipo = 'Accidente de empleado';
 */
 SELECT d.especie, COUNT(DISTINCT ic.id_incidente) as cuenta_incidentes
 FROM (Dinosaurios d INNER JOIN Involucrados i ON d.id_dinosaurio=i.id_dinosaurio) INNER JOIN
-    Incidentes ic ON i.id_incidente=ic.id_incidente
+    Incidentes ic ON i.id_incidente = ic.id_incidente
 GROUP BY d.especie
 ORDER BY cuenta_incidentes DESC;
 
@@ -81,7 +81,7 @@ FROM ((((ZonasDelParque z INNER JOIN Recintos r ON z.id_zona=r.id_zona) INNER JO
     VivenEn ve ON r.id_recinto = ve.id_recinto) INNER JOIN 
     Dinosaurios d ON ve.id_dinosaurio = d.id_dinosaurio) INNER JOIN
     Involucrados i ON d.id_dinosaurio = i.id_dinosaurio) INNER JOIN
-    Incidentes ic ON i.id_incidente=ic.id_incidente
+    Incidentes ic ON i.id_incidente = ic.id_incidente
 GROUP BY z.id_zona
 HAVING COUNT(DISTINCT d.id_dinosaurio) = (
     SELECT MAX(incidentes_dinosaurios)
@@ -91,7 +91,7 @@ HAVING COUNT(DISTINCT d.id_dinosaurio) = (
         VivenEn ve2 ON r2.id_recinto = ve2.id_recinto) INNER JOIN 
         Dinosaurios d2 ON ve2.id_dinosaurio = d2.id_dinosaurio) INNER JOIN
         Involucrados i2 ON d2.id_dinosaurio = i2.id_dinosaurio) INNER JOIN
-        Incidentes ic2 ON i2.id_incidente=ic2.id_incidente
+        Incidentes ic2 ON i2.id_incidente = ic2.id_incidente
         GROUP BY z2.id_zona
         )
     );
