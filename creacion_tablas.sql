@@ -49,8 +49,7 @@ CREATE TABLE Incidentes(
     id_incidente INTEGER PRIMARY KEY NOT NULL CHECK (id_incidente >= 0),
     tipo VARCHAR(100) NOT null,
     fecha DATE NOT NULL,
-    hora TIME NOT NULL,
-    CHECK (TIMESTAMP(fecha, hora) <= CURRENT_TIMESTAMP)
+    hora TIME NOT NULL
 );
 
 CREATE TABLE Involucrados(
