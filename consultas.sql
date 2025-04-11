@@ -17,7 +17,7 @@ WHERE d.especie = 'Eoraptor';
 3. Devolver el id y la epoca de la zona en la que residen la mayor cantidad de dinosaurios involucrados en 
 algún incidente, con la cantidad de dinosaurios. Si la cantidad es igual para varias zonas, devolver todas.
 */
-SELECT z.id_zona, z.epoca,  COUNT(DISTINCT d.id_dinosaurio)
+SELECT z.id_zona, z.epoca,  COUNT(DISTINCT d.id_dinosaurio) AS cantidad_dinosaurios
 FROM ((((ZonasDelParque z INNER JOIN Recintos r ON z.id_zona=r.id_zona) INNER JOIN
     VivenEn ve ON r.id_recinto = ve.id_recinto) INNER JOIN 
     Dinosaurios d ON ve.id_dinosaurio = d.id_dinosaurio) INNER JOIN
@@ -91,7 +91,7 @@ ORDER BY d.peso ASC;
 /*
 10. Obtener los recintos en estado 'Comprometido' con su área, cantidad de dinosaurios y epoca de la zona.
 */
-SELECT r.id_recinto, r.area_m2, COUNT(ve.id_dinosaurio) AS cuenta_dinosaurio, z.epoca
+SELECT r.id_recinto, r.area_m2, COUNT(ve.id_dinosaurio) AS cantidad_dinosaurios, z.epoca
 FROM (Recintos r INNER JOIN VivenEn ve ON r.id_recinto = ve.id_recinto) INNER JOIN ZonasDelParque z ON r.id_zona = z.id_zona
 WHERE r.estado = 'Comprometido'
 GROUP BY r.id_recinto, r.area_m2, z.epoca;
