@@ -1,4 +1,3 @@
-
 --triasico
 insert into Dinosaurios (id_dinosaurio, fecha_nacimiento, especie, genero, altura, peso) values (1, '2022-09-18', 'Coelophysis', 'Macho', 3.04, 7.92); --carnivoro
 insert into Dinosaurios (id_dinosaurio, fecha_nacimiento, especie, genero, altura, peso) values (3, '2011-07-24', 'Chindesaurus', 'Macho', 0.75, 103.33); --carnivoro
@@ -38,8 +37,6 @@ insert into Dinosaurios (id_dinosaurio, fecha_nacimiento, especie, genero, altur
 insert into Dinosaurios (id_dinosaurio, fecha_nacimiento, especie, genero, altura, peso) values (29, '2003-06-27', 'Argentinosaurus', 'Macho', 6.9, 7864.84); --herviboro
 insert into Dinosaurios (id_dinosaurio, fecha_nacimiento, especie, genero, altura, peso) values (30, '2016-07-10', 'Triceratops', 'Hembra', 3.99, 19660.62); --herviboro
 
-
-
 --zonas
 insert into ZonasDelParque (id_zona, epoca) values (1, 'Triásico');
 insert into ZonasDelParque (id_zona, epoca) values (2, 'Jurásico');
@@ -58,7 +55,6 @@ insert into Recintos (id_recinto, id_zona, area_m2, tipo, estado) values (9, 3, 
 insert into Recintos (id_recinto, id_zona, area_m2, tipo, estado) values (7, 3, 330, 'Carnívoro', 'Óptimo');
 insert into Recintos (id_recinto, id_zona, area_m2, tipo, estado) values (6, 3, 594, 'Herbívoro', 'Subóptimo');
 insert into Recintos (id_recinto, id_zona, area_m2, tipo, estado) values (8, 3, 477, 'Herbívoro', 'Comprometido');
-
 
 --victimas
 insert into Victimas (dni, tipo, nombre, herida) values (12345726, 'Visitante', 'Renaldo Bennett', 'Hueso roto');
@@ -79,13 +75,13 @@ insert into Incidentes (id_incidente, tipo, fecha, hora) values (5, 'Accidente d
 insert into Incidentes (id_incidente, tipo, fecha, hora) values (6, 'Escape de dinosaurio', '2024-8-16', '1:13 PM');
 
 --vivenen
---triasico-carnivoros
+    --triasico-carnivoros
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (1, 1, 1);
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (7, 1, 1);
 
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (3, 3, 1);
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (9, 3, 1);
---triasico-herbivoros
+    --triasico-herbivoros
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (2, 4, 1);
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (4, 4, 1);
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (5, 4, 1);
@@ -93,11 +89,12 @@ insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (6, 4, 1);
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (8, 4, 1);
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (10, 4, 1);
 
---jurasico-carnivoros
+    --jurasico-carnivoros
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (11, 11, 2);
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (12, 11, 2);
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (13, 11, 2);
---jurasico-herbivoros
+
+    --jurasico-herbivoros
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (14, 2, 2);
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (18, 2, 2);
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (15, 2, 2);
@@ -106,7 +103,7 @@ insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (17, 2, 2);
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (16, 5, 2);
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (19, 5, 2);
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (20, 5, 2);
---cretaceous-carnivoros
+    --cretaceous-carnivoros
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (21, 9, 3);
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (22, 9, 3);
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (23, 9, 3);
@@ -114,14 +111,13 @@ insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (23, 9, 3);
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (24, 7, 3);
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (25, 7, 3);
 
---cretaceous-herviboros
+    --cretaceous-herviboros
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (26, 8, 3);
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (30, 8, 3);
 
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (27, 6, 3);
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (28, 6, 3);
 insert into VivenEn (id_dinosaurio, id_recinto, id_zona) values (29, 6, 3);
-
 
 --Involucrados
 insert into Involucrados (id_dinosaurio, dni, id_incidente) values (22, 12345726, 1);
