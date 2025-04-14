@@ -13,7 +13,7 @@ CREATE TABLE ZonasDelParque(
 
 CREATE TABLE Recintos(
     id_recinto INTEGER PRIMARY KEY NOT NULL,
-    id_zona INTEGER NOT null,
+    id_zona INTEGER NOT NULL,
     FOREIGN KEY (id_zona) REFERENCES ZonasDelParque(id_zona),
     area_m2 INTEGER NOT NULL,
     tipo VARCHAR(100) NOT NULL CHECK (tipo IN ('Carnívoro', 'Herbívoro')),
@@ -47,7 +47,7 @@ CREATE TABLE Victimas(
 
 CREATE TABLE Incidentes(
     id_incidente INTEGER PRIMARY KEY NOT NULL CHECK (id_incidente >= 0),
-    tipo VARCHAR(100) NOT null,
+    tipo VARCHAR(100) NOT NULL,
     fecha DATE NOT NULL,
     hora TIME NOT NULL
 );
