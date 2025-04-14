@@ -12,7 +12,7 @@ CREATE TABLE ZonasDelParque(
 );
 
 CREATE TABLE Recintos(
-    id_recinto INTEGER PRIMARY KEY NOT NULL,
+    id_recinto INTEGER PRIMARY KEY NOT NULL CHECK (id_recinto >= 0),
     id_zona INTEGER NOT NULL,
     FOREIGN KEY (id_zona) REFERENCES ZonasDelParque(id_zona),
     area_m2 INTEGER NOT NULL,
@@ -30,9 +30,9 @@ CREATE TABLE Dinosaurios(
 );
 
 CREATE TABLE VivenEn(
-    id_dinosaurio INTEGER PRIMARY KEY NOT NULL CHECK (id_dinosaurio >= 0),
-    id_recinto INTEGER NOT NULL CHECK (id_recinto >= 0),
-    id_zona INTEGER NOT NULL CHECK (id_zona >= 0),
+    id_dinosaurio INTEGER PRIMARY KEY NOT NULL,
+    id_recinto INTEGER NOT NULL,
+    id_zona INTEGER NOT NULL,
     FOREIGN KEY (id_dinosaurio) REFERENCES Dinosaurios(id_dinosaurio),
     FOREIGN KEY (id_recinto) REFERENCES Recintos(id_recinto),
     FOREIGN KEY (id_zona) REFERENCES ZonasDelParque(id_zona)
@@ -53,9 +53,9 @@ CREATE TABLE Incidentes(
 );
 
 CREATE TABLE Involucrados(
-    id_dinosaurio INTEGER NOT NULL CHECK (id_dinosaurio >= 0),
-    dni INTEGER NOT NULL CHECK (dni >= 0),
-    id_incidente INTEGER NOT NULL CHECK (id_incidente >= 0),
+    id_dinosaurio INTEGER NOT NULL,
+    dni INTEGER NOT NULL,
+    id_incidente INTEGER NOT NULL,
     PRIMARY KEY (id_dinosaurio, dni, id_incidente),
     FOREIGN KEY (id_dinosaurio) REFERENCES Dinosaurios(id_dinosaurio),
     FOREIGN KEY (dni) REFERENCES Victimas(dni),
