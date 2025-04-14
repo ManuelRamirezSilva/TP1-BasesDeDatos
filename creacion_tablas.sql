@@ -15,7 +15,7 @@ CREATE TABLE Recintos(
     id_recinto INTEGER PRIMARY KEY NOT NULL CHECK (id_recinto >= 0),
     id_zona INTEGER NOT NULL,
     FOREIGN KEY (id_zona) REFERENCES ZonasDelParque(id_zona),
-    area_m2 INTEGER NOT NULL,
+    area_m2 INTEGER NOT NULL CHECK (area_m2 > 0),
     tipo VARCHAR(100) NOT NULL CHECK (tipo IN ('Carnívoro', 'Herbívoro')),
     estado VARCHAR(100) NOT NULL CHECK (estado IN ('Óptimo', 'Subóptimo', 'Comprometido', 'Peligroso'))
 );
